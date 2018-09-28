@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>House:</strong>
+  <%= @house_realtor.house %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @house_realtor.user %>
+</p>
+
+<%= link_to 'Edit', edit_house_realtor_path(@house_realtor) %> |
+<%= link_to 'Back', house_realtors_path %>
