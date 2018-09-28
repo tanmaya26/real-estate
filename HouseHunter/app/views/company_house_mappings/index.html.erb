@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Company House Mappings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>House</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company_house_mappings.each do |company_house_mapping| %>
+      <tr>
+        <td><%= company_house_mapping.company %></td>
+        <td><%= company_house_mapping.house %></td>
+        <td><%= link_to 'Show', company_house_mapping %></td>
+        <td><%= link_to 'Edit', edit_company_house_mapping_path(company_house_mapping) %></td>
+        <td><%= link_to 'Destroy', company_house_mapping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company House Mapping', new_company_house_mapping_path %>
