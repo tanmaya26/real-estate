@@ -33,10 +33,20 @@ ActiveRecord::Schema.define(version: 2018_09_28_005257) do
     t.index ["house_id"], name: "index_company_house_mappings_on_house_id"
   end
   
-  create_table "roles", force: :cascade do |t|
-    t.text "role_type"
+  create_table "houses", force: :cascade do |t|
+    t.integer "company_id"
+    t.string "location"
+    t.integer "square_footage"
+    t.integer "year_built"
+    t.string "style"
+    t.float "price_list"
+    t.integer "number_of_floors"
+    t.boolean "basement"
+    t.string "current_owner"
+    t.string "contact_info_realtor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_houses_on_company_id"
   end
   
   create_table "users", force: :cascade do |t|
