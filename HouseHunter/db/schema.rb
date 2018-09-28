@@ -61,5 +61,14 @@ ActiveRecord::Schema.define(version: 2018_09_28_005257) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+  
+  create_table "house_realtors", force: :cascade do |t|
+    t.integer "house_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["house_id"], name: "index_house_realtors_on_house_id"
+    t.index ["user_id"], name: "index_house_realtors_on_user_id"
+  end
 
 end
