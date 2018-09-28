@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_22_202223) do
+ActiveRecord::Schema.define(version: 2018_09_28_005257) do
 
   create_table "companies", force: :cascade do |t|
     t.text "name"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2018_09_22_202223) do
     t.text "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "company_house_mappings", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "house_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_house_mappings_on_company_id"
+    t.index ["house_id"], name: "index_company_house_mappings_on_house_id"
   end
 
   create_table "roles", force: :cascade do |t|

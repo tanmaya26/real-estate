@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :company_house_mappings
   get 'home/index'
   resources :companies
   resources :roles
