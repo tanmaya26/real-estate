@@ -1,0 +1,27 @@
+<%= form_with(model: company_house_mapping, local: true) do |form| %>
+  <% if company_house_mapping.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company_house_mapping.errors.count, "error") %> prohibited this company_house_mapping from being saved:</h2>
+
+      <ul>
+      <% company_house_mapping.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :company_id %>
+    <%= form.text_field :company_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :house_id %>
+    <%= form.text_field :house_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
