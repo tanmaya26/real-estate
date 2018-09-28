@@ -1,0 +1,27 @@
+<%= form_with(model: house_realtor, local: true) do |form| %>
+  <% if house_realtor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(house_realtor.errors.count, "error") %> prohibited this house_realtor from being saved:</h2>
+
+      <ul>
+      <% house_realtor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :house_id %>
+    <%= form.text_field :house_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
