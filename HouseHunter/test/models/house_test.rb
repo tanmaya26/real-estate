@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HouseRealtorTest < ActiveSupport::TestCase
+class HouseTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
