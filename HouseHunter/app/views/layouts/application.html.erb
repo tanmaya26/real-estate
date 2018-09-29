@@ -8,8 +8,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<h1>OODD</h1>
+<h1>House Hunter</h1>
   <body>
     <%= yield %>
   </body>
+  <br><br>
+  <%= link_to "List all companies", companies_url %> <%= link_to "List all houses", houses_url %>
 </html>
