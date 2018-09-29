@@ -12,6 +12,7 @@
       <th>Last name</th>
       <th>Middle name</th>
       <th>Preferred contact method</th>
+      <th>Role Type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,6 +27,7 @@
         <td><%= user.last_name %></td>
         <td><%= user.middle_name %></td>
         <td><%= user.preferred_contact_method %></td>
+        <td><%= user.role_type %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
