@@ -5,5 +5,4 @@ class Company < ApplicationRecord
   validates :address, presence: true
   validates :founded, presence: true
   validates :size, presence: true
-
 end
