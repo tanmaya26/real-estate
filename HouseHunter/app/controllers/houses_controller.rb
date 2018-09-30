@@ -69,7 +69,6 @@ class HousesController < ApplicationController
         format.json {head :no_content}
         end
     else
-      
       respond_to do |format|
         format.html {redirect_to houses_url, notice: 'Permission denied to remove the house.'}
         format.json {head :no_content}
