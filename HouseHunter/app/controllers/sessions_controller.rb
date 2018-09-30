@@ -7,7 +7,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email_address: params[:session][:email_address].downcase)
     if user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
-      session[:id] = user.id.to_s
+      
+      session[:id] = user.id
+      
+      
       redirect_to users_path, :notice => "Logged in successfully"
 
     else

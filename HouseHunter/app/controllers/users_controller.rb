@@ -7,9 +7,7 @@ class UsersController < ApplicationController
     if User.find(session[:id]).role_type == "admin"
       @users = User.all
     else
-      # TODO select only particular user account
-      @users = User.all
-      # @users = User.find(session[:id])
+      @users = User.where("id = ?", session[:id])
     end
   end
   

@@ -9,12 +9,7 @@ class HousesController < ApplicationController
   def index
     
     @houses = House.all
-    #
-    # if House.find(params[:id]).user_id == session[:id] || User.find(session[:id]).role_type == "admin"
-    #   @editable = true
-    # else
-    #   @editable = false
-    # end
+
   
   end
   
