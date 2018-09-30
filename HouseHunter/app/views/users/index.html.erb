@@ -20,6 +20,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        
         <td><%= user.user_name %></td>
         <td><%= user.email_address %></td>
         <td><%= user.first_name %></td>
@@ -37,8 +38,9 @@
 </table>
 
 <br>
-
+<% if User.find(session[:id]).role_type == "admin"%>
 <%= link_to 'New User', new_user_path %>
+<% end %>
 
 <br><br>
 <%= link_to "List all companies", companies_url %> <%= link_to "List all houses", houses_url %>
