@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
+    <%= select("house", "company_id", Company.all.collect{ |c| [ c.name, c.id] })  %>
   </div>
 
   <div class="field">

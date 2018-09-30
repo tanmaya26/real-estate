@@ -2,7 +2,7 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @house.company %>
+  <%= Company.find(@house.company_id).name %>
 </p>
 
 <p>
