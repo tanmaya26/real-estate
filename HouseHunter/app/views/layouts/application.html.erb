@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>HouseHunter</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>HouseHunter</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-<h1>House Hunter</h1>
-  <body>
-    <%= yield %>
-  </body>
-  <br><br>
-  <%= link_to "List all companies", companies_url %> <%= link_to "List all houses", houses_url %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<% if current_user %>
+  <!-- current_user will return true if a user is logged in -->
+  <%= "Logged in as #{current_user.user_name}" %> | <%= link_to 'Home', users_path %> | <%= link_to 'Log Out', logout_path, method: :delete %>
+<% else %>
+  <!-- not logged in -->
+  <h3>You are not signed in!</h3>
+  <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', new_user_path %>
+<% end %>
+<hr>
+
+<%# ----- end of added lines ----- %>
+
+<% if notice %>
+  <%= notice %>
+<% end %>
+
+<% if alert %>
+  <%= alert %>
+<% end %>
+<%= yield %>
+</body>
+
+<br><br>
+<%= link_to "List all companies", companies_url %> <%= link_to "List all houses", houses_url %>
 </html>
