@@ -22,9 +22,7 @@
 
 <%# ----- end of added lines ----- %>
 
-<% if notice %>
-  <%= notice %>
-<% end %>
+
 
 <% if alert %>
   <%= alert %>
@@ -32,6 +30,5 @@
 <%= yield %>
 </body>
 
-<br><br>
-<%= link_to "List all companies", companies_url %> <%= link_to "List all houses", houses_url %>
+
 </html>
