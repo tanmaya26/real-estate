@@ -1,5 +1,10 @@
 <h1>New Inquiry</h1>
-
+<% if current_user %>
+  <% if User.find(session[:id]).role_type == "admin" || User.find(session[:id]).role_type == "buyer"%>
 <%= render 'form', inquiry: @inquiry %>
-
-<%= link_to 'Back', inquiries_path %>
+  <%else%>
+    <h3> Only users or admin can submit inquiry. </h3>
+  <% end %>
+  <% else %>
+<%= link_to "You must be logged in to submit inquiries.", login_path %>
+<% end %>
