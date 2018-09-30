@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :user_company_mappings
   resources :inquiries
   # get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
