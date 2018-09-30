@@ -16,6 +16,7 @@
     <th>Basement</th>
     <th>Current owner</th>
     <th>Contact info realtor</th>
+    
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -35,10 +36,14 @@
       <td><%= house.current_owner %></td>
       <td><%= house.contact_info_realtor %></td>
       <td><%= link_to 'Show', house %></td>
-      <%# if @editable %>
+
+      <% if User.find(session[:id]).role_type == "admin" || house.user_id == session[:id] %>
+
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
-      <%# end %>
-      <td><%= link_to 'Destroy', house, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <% end %>
+      <% if User.find(session[:id]).role_type == "admin" || house.user_id == session[:id] %>
+        <td><%= link_to 'Destroy', house, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
