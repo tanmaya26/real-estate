@@ -35,5 +35,6 @@
 </table>
 
 <br>
-
+<% if User.find(session[:id]).role_type == "admin" || User.find(session[:id]).role_type == "realtor"%>
 <%= link_to 'New Company', new_company_path %>
+<% end %>
