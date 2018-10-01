@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :house_interest_lists
   resources :inquiry_replies
   resources :user_company_mappings
   resources :inquiries
