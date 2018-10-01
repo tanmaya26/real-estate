@@ -11,20 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :user_id %>
+    <%#= form.text_field :user_id %>
+<!--  </div>-->
 
   <div class="field">
     <%= form.label :house_id %>
-    <%= form.text_field :house_id %>
+    <%= select("house_interest_list", "house_id", House.all.collect{ |c| [ c.location, c.id] })  %>
+
   </div>
 
-  <div class="field">
-    <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :company_id %>
+    <%#= select("house_interest_list", "company_id", Company.all.collect{ |c| [ c.name, c.id] })  %>
+<!--  </div>-->
 
   <div class="actions">
     <%= form.submit %>
