@@ -15,9 +15,9 @@
   <tbody>
     <% @house_interest_lists.each do |house_interest_list| %>
       <tr>
-        <td><%= house_interest_list.user %></td>
-        <td><%= house_interest_list.house %></td>
-        <td><%= house_interest_list.company %></td>
+        <td><%= User.find(house_interest_list.user_id).user_name %></td>
+        <td><%= House.find(house_interest_list.house_id).location %></td>
+        <td><%= Company.find(house_interest_list.company_id).name %></td>
         <td><%= link_to 'Show', house_interest_list %></td>
         <td><%= link_to 'Edit', edit_house_interest_list_path(house_interest_list) %></td>
         <td><%= link_to 'Destroy', house_interest_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New House Interest List', new_house_interest_list_path %>
+<%= link_to 'ADD House to Interest List', new_house_interest_list_path %>
