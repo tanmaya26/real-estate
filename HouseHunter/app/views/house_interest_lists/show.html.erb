@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @house_interest_list.user %>
+</p>
+
+<p>
+  <strong>House:</strong>
+  <%= @house_interest_list.house %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @house_interest_list.company %>
+</p>
+
+<%= link_to 'Edit', edit_house_interest_list_path(@house_interest_list) %> |
+<%= link_to 'Back', house_interest_lists_path %>
