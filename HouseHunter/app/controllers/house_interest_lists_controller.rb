@@ -4,10 +4,14 @@ class HouseInterestListsController < ApplicationController
   # GET /house_interest_lists
   # GET /house_interest_lists.json
   def index
+    
     if User.find(session[:id]).role_type == "admin"
       @house_interest_lists = HouseInterestList.all
-    else
+    elsif User.find(session[:id]).role_type == "buyer"
       @house_interest_lists = HouseInterestList.where("user_id = ?", session[:id])
+    else
+      # TODO Filter all houses which are added by realtor and his companies houses
+      # @house_interest_lists = HouseInterestList.where("house_id in ?", House.where("user_id",session[:id]).ids)
     end
   end
   
