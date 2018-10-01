@@ -4,28 +4,27 @@
       <h2><%= pluralize(inquiry.errors.count, "error") %> prohibited this inquiry from being saved:</h2>
 
       <ul>
-      <% inquiry.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% inquiry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+  <!--  <div class="field">-->
+  <%#= form.label :user_id %>
+  <%#= form.text_field :user_id %>
+  <!--  </div>-->
 
-  <div class="field">
-    <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
-  </div>
+  <!--  <div class="field">-->
+  <%#= form.label :company_id %>
+  <%#= form.text_field :company_id %>
+  <!--  </div>-->
 
   <div class="field">
     <%= form.label :house_id %>
-    <%= form.text_field :house_id %>
+    <%= select("inquiry", "house_id", House.all.collect{ |c| [ c.location, c.id] })  %>
   </div>
-
   <div class="field">
     <%= form.label :subject %>
     <%= form.text_field :subject %>
