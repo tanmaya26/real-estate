@@ -1,4 +1,5 @@
-<h1>Editing User</h1>
+<h3>You are in Editing User Page</h3>
+<% if current_user %>
 
 <%= render 'form', user: @user %>
 
@@ -6,3 +7,6 @@
 <%= link_to 'Back', users_path %>
 <br><br>
 <%= link_to "List all companies", companies_url %> <%= link_to "List all houses", houses_url %>
+<% else %>
+  <%= link_to "You must be logged in to edit users.", login_path %>
+<% end %>
