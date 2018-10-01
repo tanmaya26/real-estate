@@ -69,6 +69,6 @@ class UserCompanyMappingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_company_mapping_params
-      params.require(:user_company_mapping).permit(:users_id, :companies_id)
+      params.require(:user_company_mapping).permit(:user_id, :company_id)
     end
 end
