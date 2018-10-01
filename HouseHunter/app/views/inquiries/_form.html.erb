@@ -4,9 +4,9 @@
       <h2><%= pluralize(inquiry.errors.count, "error") %> prohibited this inquiry from being saved:</h2>
 
       <ul>
-      <% inquiry.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% inquiry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
