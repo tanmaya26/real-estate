@@ -1,5 +1,11 @@
-<h1>New User</h1>
-
-<%= render 'form', user: @user %>
-
+<h3>Hello. You are at New Users page.</h3>
+<% if current_user %>
+<% if User.find(session[:id]).role_type == "admin" %>
+  <%= render 'form', user: @user %>
+  <%else%>
+  <h3> You don't have permission to add user. </h3>
+<% end %>
+  <% else %>
+  <%= render 'form' %>
+<% end %>
 <%= link_to 'Back', users_path %>
