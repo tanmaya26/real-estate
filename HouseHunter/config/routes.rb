@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :inquiry_replies
   resources :user_company_mappings
   resources :inquiries
   # get    '/signup',  to: 'users#new'
