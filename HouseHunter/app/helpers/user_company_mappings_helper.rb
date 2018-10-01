@@ -1,0 +1,2 @@
+module UserCompanyMappingsHelper
+end

@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if current_user.u &&  @users.update(user_params)
+      if  @user.update(user_params)
         format.html {redirect_to @user, notice: 'User was successfully updated.'}
         format.json {render :show, status: :ok, location: @user}
       else
@@ -62,11 +62,11 @@ class UsersController < ApplicationController
   def destroy
     
     respond_to do |format|
-      if @users.role_type == "admin"
+      if @user.role_type == "admin"
         format.html {redirect_to users_url, notice: 'Admin account cannot be deleted'}
         format.json {head :no_content}
       else
-        @users.destroy
+        @user.destroy
         format.html {redirect_to users_url, notice: 'User was successfully destroyed.'}
         format.json {head :no_content}
       end

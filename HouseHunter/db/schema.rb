@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_30_142403) do
+ActiveRecord::Schema.define(version: 2018_10_01_042606) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2018_09_30_142403) do
     t.integer "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "house_interest_lists", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "house_id"
+    t.integer "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_house_interest_lists_on_company_id"
+    t.index ["house_id"], name: "index_house_interest_lists_on_house_id"
+    t.index ["user_id"], name: "index_house_interest_lists_on_user_id"
   end
 
   create_table "houses", force: :cascade do |t|
@@ -53,6 +64,29 @@ ActiveRecord::Schema.define(version: 2018_09_30_142403) do
     t.index ["company_id"], name: "index_inquiries_on_company_id"
     t.index ["house_id"], name: "index_inquiries_on_house_id"
     t.index ["user_id"], name: "index_inquiries_on_user_id"
+  end
+
+  create_table "inquiry_replies", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "house_id"
+    t.integer "inquiry_id"
+    t.string "message"
+    t.integer "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_inquiry_replies_on_company_id"
+    t.index ["house_id"], name: "index_inquiry_replies_on_house_id"
+    t.index ["inquiry_id"], name: "index_inquiry_replies_on_inquiry_id"
+    t.index ["user_id"], name: "index_inquiry_replies_on_user_id"
+  end
+
+  create_table "user_company_mappings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_user_company_mappings_on_company_id"
+    t.index ["user_id"], name: "index_user_company_mappings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

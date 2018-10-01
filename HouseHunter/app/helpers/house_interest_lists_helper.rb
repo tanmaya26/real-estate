@@ -1,0 +1,2 @@
+module HouseInterestListsHelper
+end

@@ -1,5 +1,5 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
-  def change
+  def up
     create_table :users do |t|
       t.string :user_name
       t.string :password
@@ -13,5 +13,16 @@ class CreateUsers < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    User.create  user_name:  'admin',
+                          password: 'admin',
+                          email_address: 'admin@ncsu.edu',
+                          first_name: 'admin',
+                          last_name: 'ncsu',
+                          phone_number: 9194568765,
+                          preferred_contact_method: 'text',
+                          role_type: 'text'
+  end
+  def down
+    drop_table :users
   end
 end
