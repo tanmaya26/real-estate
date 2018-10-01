@@ -12,6 +12,7 @@ class HouseInterestListsController < ApplicationController
     else
       # TODO Filter all houses which are added by realtor and his companies houses
       # @house_interest_lists = HouseInterestList.where("house_id in ?", House.where("user_id",session[:id]).ids)
+        @house_interest_lists = HouseInterestList.where("user_id = ?", session[:id])
     end
   end
   
